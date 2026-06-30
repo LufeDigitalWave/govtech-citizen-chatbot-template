@@ -1,0 +1,130 @@
+faqs:
+  - question: "Como faço para emitir a segunda via do boleto de IPTU?"
+    answer: >
+      Você pode emitir a segunda via do IPTU pelo portal da prefeitura em
+      prefeitura.gov.br/iptu, informando o número de inscrição do imóvel ou CPF
+      do proprietário. Também é possível comparecer ao setor de Atendimento ao
+      Contribuinte na sede da prefeitura, de segunda a sexta, das 8h às 17h.
+      Leve um documento com foto e o comprovante de endereço do imóvel.
+    keywords:
+      - iptu
+      - segunda via
+      - imposto
+      - boleto
+      - imóvel
+      - predial
+
+  - question: "Qual o horário de atendimento da prefeitura?"
+    answer: >
+      O atendimento presencial na prefeitura é de segunda a sexta-feira, das 8h
+      às 17h, exceto feriados municipais, estaduais e nacionais. O portal de
+      serviços online (prefeitura.gov.br) está disponível 24 horas por dia, 7
+      dias por semana.
+    keywords:
+      - horário
+      - atendimento
+      - funcionamento
+      - expediente
+      - segunda
+      - sexta
+
+  - question: "Como solicitar alvará de funcionamento para meu negócio?"
+    answer: >
+      O alvará de funcionamento pode ser solicitado pelo portal de licenciamento
+      em prefeitura.gov.br/alvara. Você precisará de: CNPJ ativo, contrato social
+      ou MEI, comprovante de endereço comercial e consulta prévia de viabilidade
+      aprovada. O prazo de análise é de até 10 dias úteis. Para atividades de
+      alto risco ou vigilância sanitária, laudos técnicos adicionais podem ser
+      exigidos.
+    keywords:
+      - alvará
+      - funcionamento
+      - licença
+      - negócio
+      - empresa
+      - comercial
+      - cnpj
+      - mei
+
+  - question: "Como registrar uma reclamação sobre coleta de lixo ou limpeza pública?"
+    answer: >
+      Reclamações sobre coleta de lixo, varrição ou limpeza de vias públicas
+      podem ser registradas pelos seguintes canais: (1) portal prefeitura.gov.br/ouvidoria,
+      (2) aplicativo Cidade Conectada, ou (3) presencialmente no setor de Serviços
+      Urbanos. Informe o endereço completo e descreva o problema. O prazo de
+      atendimento é de até 72 horas para casos urgentes.
+    keywords:
+      - lixo
+      - coleta
+      - limpeza
+      - varrição
+      - reclamação
+      - rua
+      - calçada
+      - entulho
+
+  - question: "Como solicitar conserto de buraco ou pavimentação da rua?"
+    answer: >
+      Para solicitar tapa-buraco ou recapeamento, abra um chamado pelo portal
+      prefeitura.gov.br/infraestrutura ou ligue para a Central 156. Informe o
+      endereço exato (logradouro, número e referência). O prazo de vistoria é de
+      até 5 dias úteis. Buracos em vias de grande circulação têm prioridade.
+    keywords:
+      - buraco
+      - tapa-buraco
+      - pavimentação
+      - asfalto
+      - rua
+      - via
+      - conserto
+      - 156
+
+  - question: "Como solicitar iluminação pública ou reportar poste apagado?"
+    answer: >
+      Poste apagado ou com defeito pode ser reportado pelo portal
+      prefeitura.gov.br/iluminacao, pelo aplicativo Cidade Conectada, ou ligando
+      para a CPFL/Enel (conforme sua região). Informe o número do poste (gravado
+      no próprio poste) ou o endereço exato. O prazo de reparo é de até 5 dias
+      úteis para iluminação residencial.
+    keywords:
+      - iluminação
+      - poste
+      - apagado
+      - luz
+      - rua escura
+      - lâmpada
+
+  - question: "Como me cadastrar em programas de habitação social?"
+    answer: >
+      O cadastro em programas habitacionais (como Minha Casa Minha Vida e
+      programas municipais) é feito na Secretaria de Habitação, de segunda a
+      sexta das 8h às 16h. Documentos necessários: RG, CPF, comprovante de
+      renda de todos os moradores, comprovante de residência e certidão de
+      casamento ou nascimento dos dependentes. As vagas são limitadas e seguem
+      critérios de vulnerabilidade social estabelecidos em lei.
+    keywords:
+      - habitação
+      - moradia
+      - casa
+      - social
+      - programa
+      - minha casa
+      - cras
+      - cadastro
+
+  - question: "Como solicitar atendimento pelo CRAS ou assistência social?"
+    answer: >
+      O Centro de Referência de Assistência Social (CRAS) oferece atendimento
+      gratuito a famílias em vulnerabilidade social. Serviços: Cadastro Único
+      (CadÚnico), Bolsa Família, BPC, orientação jurídica e psicossocial.
+      Compareça ao CRAS mais próximo do seu bairro com RG, CPF e comprovante
+      de residência. Não é necessário agendamento para a triagem inicial.
+    keywords:
+      - cras
+      - assistência social
+      - bolsa família
+      - cadÚnico
+      - vulnerabilidade
+      - benefício
+      - bpc
+      - loas

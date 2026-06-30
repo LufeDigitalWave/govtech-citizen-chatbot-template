@@ -1,0 +1,102 @@
+version: "3.9"
+
+# GovTech Citizen Chatbot — local development and Docker Swarm compatible stack.
+#
+# For Docker Swarm deployment, use:
+#   docker stack deploy -c docker-compose.yml chatbot
+#
+# For local development:
+#   docker compose up -d
+#   uvicorn app.main:app --reload  (or let the api service handle it)
+
+services:
+
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: govtech-chatbot:latest
+    ports:
+      - "8000:8000"
+    environment:
+      - REDIS_URL=redis://redis:6379/0
+      - DATABASE_URL=postgresql+asyncpg://chatbot:chatbot@postgres:5432/chatbot
+      - LOG_LEVEL=${LOG_LEVEL:-INFO}
+      - JSON_LOGS=${JSON_LOGS:-false}
+      - AGENT_TYPE=${AGENT_TYPE:-echo}
+      - AGENT_CITY=${AGENT_CITY:-Município}
+      - FAQ_PATH=${FAQ_PATH:-agents/faq/faq_data.yaml}
+      # Secrets below — set via .env or Docker secrets in Swarm
+      - OPENAI_API_KEY=${OPENAI_API_KEY:-}
+      - CHATWOOT_URL=${CHATWOOT_URL:-}
+      - CHATWOOT_API_TOKEN=${CHATWOOT_API_TOKEN:-}
+      - CHATWOOT_ACCOUNT_ID=${CHATWOOT_ACCOUNT_ID:-1}
+      - EVOLUTION_URL=${EVOLUTION_URL:-}
+      - EVOLUTION_API_KEY=${EVOLUTION_API_KEY:-}
+      - EVOLUTION_INSTANCE=${EVOLUTION_INSTANCE:-default}
+      - ADMIN_PHONE=${ADMIN_PHONE:-}
+      - WEBHOOK_SECRET=${WEBHOOK_SECRET:-}
+    volumes:
+      - ./agents:/app/agents:ro
+    depends_on:
+      redis:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+    restart: unless-stopped
+    deploy:
+      replicas: 2
+      update_config:
+        parallelism: 1
+        delay: 10s
+        order: start-first
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+
+  redis:
+    image: redis:7-alpine
+    command: redis-server --appendonly yes --maxmemory 128mb --maxmemory-policy allkeys-lru
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+    deploy:
+      replicas: 1
+      placement:
+        constraints:
+          - node.role == manager
+
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: chatbot
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-chatbot}
+      POSTGRES_DB: chatbot
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U chatbot"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+    # Postgres is optional in the base template. Custom agents that persist
+    # conversation state will use it. Remove this service if not needed.
+    profiles:
+      - with-db
+    deploy:
+      replicas: 1
+
+volumes:
+  redis_data:
+  postgres_data:
